@@ -1,10 +1,29 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './Item.module.css';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<div className ={styles.item
-}>
+class Item extends React.Component {
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate');
+    }
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+    }
+
+    render() {
+        const { value, isDone, onClickDone, id, onClickDelete } = this.props;
+
+    return (
+     <div className ={styles.item}>
+
+
 <Checkbox
       checked={isDone}
       color="Secondary"
@@ -27,10 +46,16 @@ const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<div classN
      Delete
   </button>
 
-</div>);
+  </div>);
+  }
+}
 
-Item.defaultProps = {
-    value: " Добавьте дело в список."
+Item.propTypes = {
+    value: PropTypes.string.isRequired,
+    isDone:PropTypes.bool.isRequired,
+    onClickDone:PropTypes.func.isRequired,
+    id:PropTypes.number.isRequired,
+    onClickDelete:PropTypes.func.isRequired
 };
 
 export default Item;
