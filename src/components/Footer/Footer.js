@@ -18,10 +18,14 @@ const Footer = ({ count }) => (
             <Button variant="outlined" disabled>Completed</Button>
             </Button>
         </div>
-        <Button size="medium" >
-         Clear Completed
+           <Button size="medium" >
+           Clear Completed
         </Button>
   </div>
 );
+
+Footer.defaultProps = {
+    count: 0
+};
 
 export default Footer;
